@@ -1,0 +1,139 @@
+@mixin flexDisplay($jContent) {
+  display: flex;
+  align-items: center;
+  justify-content: $jContent;
+}
+
+%left-paragraph {
+  text-align: left;
+  width: 100%;
+}
+
+.todoContainer {
+  @include flexDisplay(baseline);
+  
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  max-width: 30rem;
+  margin: 0 auto;
+  background-color: rgb(236, 234, 234);
+  min-height: 100vh;
+  //todo
+  .mainContainer {
+    text-align: center;
+    width: 90%;
+    margin: 0 auto;
+
+    .todoListContainer {
+      overflow: hidden;
+      width: 100%;
+      @include flexDisplay(center);
+      flex-direction: column;
+      p {
+        @extend %left-paragraph;
+        width: 100%;
+      }
+      
+      div {
+        
+        position: relative;
+        @include flexDisplay(start);
+        width: 100%;
+        // max-width: 25rem;
+        background-color: rgba(145, 143, 143, 0.5);
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+        padding: 0 0.2rem;
+        text-align: left;
+        box-shadow: 0px 0px 0px 1px rgba(145, 143, 143, 0.5);
+
+        .trashIcon {
+          position: absolute;
+          right: 0;
+          height: 100%;
+          background-color: red;
+          @include flexDisplay(center);
+          width: 2.5rem;
+          margin: 0;
+          text-align: center;
+          color: #fff;
+        }
+        p {
+          text-align: left;
+          font-weight: 400;
+          // width: 100%;
+        }
+        input {
+          padding: 1rem;
+          margin-right: 1rem;
+        }
+      }
+    }
+  }
+
+  // form
+  form {
+    @include flexDisplay(center);
+    width: calc(100% - 10%);
+    margin: 0 auto;
+    max-width: 30rem;
+    .btn {
+      background-color: grey;
+      border: 1px solid grey;
+      padding: 0.5rem;
+      font-size: 1rem;
+      color: #fff;
+    }
+    .textInput {
+      padding: 0.5rem;
+      width: 100%;
+      font-size: 1rem;
+      outline: 1px solid grey;
+      border: none;
+    }
+  }
+
+  //   header compoent
+  .todoHeader {
+    color: red;
+
+    text-align: left;
+    width: 100%;
+    padding: 2rem 0 1rem 2rem;
+  }
+  .btnHolder {
+    // position: absolute;
+
+    @include flexDisplay(center);
+    font-size: 1rem;
+    padding-top: 1rem;
+    // bottom: 0;
+    button {
+      padding: 0.5rem;
+      border: none;
+      margin: 1rem;
+      transition: all 5s ease-in;
+   
+    }
+    button:hover {
+      border-bottom: 1px solid #e43d3d;
+   
+    
+    }
+  }
+
+  //  NoTask
+  .noTask {
+    padding: 5rem 1rem;
+    @include flexDisplay(center);
+    flex-direction: column;
+    .diceIcon {
+      font-size: 3rem;
+      color: #5032bb;
+    }
+    h5 {
+      font-size: 1.5rem;
+    }
+  }
+}
