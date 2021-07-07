@@ -14,7 +14,7 @@ const Todo = ({ todo, onDelete, onToggle, onCheck }) => {
   // const setComplete = (id) => { };
 
   return (
-    <Fade right>
+    < Fade right>
       <div
         className="listContianer"
         onMouseEnter={trashHandler}

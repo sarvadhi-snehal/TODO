@@ -7,8 +7,10 @@ function DoneTodo({ todos,onToggle, onDelete }) {
   let doneTodo = todos.filter((todo) => todo.isDone !== false);
   let total = Math.floor((doneTodo.length / todos.length) * 100);
   return (
-    <div className="todoListContainer">
-      <p >{`Completed task: ${total}%`}</p>
+    <div className="listCon">
+ <p >{`Completed task: ${total}%`}</p>
+   <div className="todoListContainer">
+     
       {todos.map((todo) => {
         if (todo.isDone === true) {
           return (      
@@ -23,6 +25,8 @@ function DoneTodo({ todos,onToggle, onDelete }) {
         }
       })}
     </div>
+    </div>
+ 
   );
 }
 

@@ -10,8 +10,10 @@ let isCheck = false;
   let ramianTodo = todos.filter((todo) => todo.isDone == false);
   let total = ramianTodo.length;
   return (
-    <div className="todoListContainer">
+  <div className="listCon">
       {total == 0 ? null : <p>{`Tou have ${total} pending item`}</p>}
+    <div className="todoListContainer">
+    
       {total == 0 ? (
         <Dice />
       ) : (
@@ -28,6 +30,9 @@ let isCheck = false;
         })
       )}
     </div>
+  </div>
+
+
   );
 }
 
