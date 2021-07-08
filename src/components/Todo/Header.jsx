@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Button from "./Button";
+
 
 const Header = ({ day, date, month, year }) => {
   return (
@@ -9,11 +9,6 @@ const Header = ({ day, date, month, year }) => {
       <p>
         {date}/{month}/{year}
       </p>
-
-      {/* <Button 
-        text='Add'
-        onClick={handleClick}
-        /> */}
     </header>
   );
 };
