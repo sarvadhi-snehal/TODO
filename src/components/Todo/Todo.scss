@@ -48,7 +48,7 @@
     @include flexDisplay(center, center);
    
     flex-direction: column;
-    padding: 2.5rem 0;
+    padding-top:2.5rem ;
 
     .diceIcon {
       font-size: 3rem;
@@ -62,14 +62,14 @@
  
     height: 70%;
     .listCon {
-     
       height: 48%;
+     
       overflow:hidden;
       .todoListContainer {
        height:90%;
        overflow-y: auto;
         overflow-x: hidden;
-       
+        
       }
       .listContianer{
         @include flexDisplay(center, baseline);
