@@ -11,7 +11,7 @@ let isCheck = false;
   let total = ramianTodo.length;
   return (
   <div className="listCon">
-      {total == 0 ? null : <p>{`Tou have ${total} pending item`}</p>}
+      {total == 0 ? null : <p className="remain">{`Tou have ${total} pending item`}</p>}
     <div className="todoListContainer">
     
       {total == 0 ? (

@@ -1,6 +1,6 @@
-@mixin flexDisplay($jContent) {
+@mixin flexDisplay($aline, $jContent) {
   display: flex;
-  align-items: center;
+  align-items: $aline;
   justify-content: $jContent;
 }
 
@@ -10,154 +10,110 @@
 }
 
 .todoContainer {
- 
-  @include flexDisplay(baseline);
+  @include flexDisplay(left, baseline);
   flex-direction: column;
-  position: relative;
-  width: 100%;
-  max-width: 30rem;
-  margin: 0 auto;
-  background-color: rgb(236, 234, 234);
   height: 100vh;
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 100%;
+  max-width: 25rem;
+  margin: 0 auto;
+  position: relative;
+  padding: 0 1rem;
 
   .todoHeader {
-    color: red;
-    text-align: left;
-    width: 100%;
-    padding: 0.5rem 0 0 2.5rem;
+    padding: 2rem 0;
     h1 {
-      font-size: 1.5rem;
-   
+      font-size: 2rem;
     }
     p {
       font-size: 1rem;
     }
   }
-  //todo
-  .mainContainer {
-    text-align: left;
-    width: 90%;
-    margin: 0 auto;
-    
-    overflow: hidden;
-    // padding: 1rem 0;
-  
-    .todoListContainer {
-      overflow-y: auto;
-  
-      max-height:25vh;
-      top: 0;
-      // padding-top: 1rem;
-      // padding: 1rem 0;
-      width: 100%;
-
-      &::-webkit-scrollbar {
-        display: none;
-      }
-      // &::-webkit-scrollbar-track {
-      //   background-color: transparent;
-      // }
-      // &::-webkit-scrollbar-thumb {
-      //   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-      // }
-
-      @include flexDisplay(center);
-      flex-direction: column;
-
-      p {
-        @extend %left-paragraph;
-        width: 100%;
-      }
-
-      div {
-        position: relative;
-        @include flexDisplay(start);
-        width: 100%;
-        // max-width: 25rem;
-        background-color: rgba(145, 143, 143, 0.5);
-        
-        margin-top: 0.3rem;
-        padding: 0 0.2rem;
-        text-align: left;
-        box-shadow: 0px 0px 0px 1px rgba(145, 143, 143, 0.5);
-        
-        .trashIcon {
-          position: absolute;
-          right: 0;
-          height: 100%;
-          background-color: red;
-          @include flexDisplay(center);
-          width: 2.5rem;
-          margin: 0;
-          text-align: center;
-          color: #fff;
-        }
-        p {
-          text-align: left;
-          font-weight: 600;
-          // width: 100%;
-        }
-        input {
-          padding:0 1rem;
-          margin-right: 1rem;
-        }
-      }
-      
-    }
-  }
 
   // form
-  form {
-    @include flexDisplay(center);
-    width: calc(100% - 10%);
-    margin: 0 auto;
-    max-width: 30rem;
-    .btn {
-      background-color: grey;
-      border: 1px solid grey;
-      padding: 0.5rem;
-      font-size: 1rem;
-      color: #fff;
-    }
-    .textInput {
-      padding: 0.55rem;
-      width: 100%;
-      font-size: 1rem;
-      outline: 1px solid grey;
-      border: none;
-    }
-  }
+  .todoForm {
+    width: 100%;
 
-  //   header compoent
-
-  .btnHolder {
-    position: absolute;
-    @include flexDisplay(center);
-    font-size: 1rem;
-    // padding-top: 1rem;
-    bottom: 0;
+    input {
+      padding: 0.5rem 1rem;
+      width: 82%;
+    }
     button {
-      padding: 0.5rem;
-      border: none;
-      margin: 1rem;
-      transition: all 5s ease-in;
-    }
-    button:hover {
-      border-bottom: 1px solid #e43d3d;
+      margin-left: 2%;
+      padding: 0.5rem 1rem;
     }
   }
 
-  //  NoTask
-  .noTask {
-    padding: 3rem 1rem;
-    @include flexDisplay(center);
+  .dice {
+    @include flexDisplay(center, center);
+   
     flex-direction: column;
+    padding: 2.5rem 0;
+
     .diceIcon {
       font-size: 3rem;
-      color: #5032bb;
-    }
-    h5 {
-      font-size: 1.5rem;
+      color: rgba(15, 17, 179, 0.8);
+      padding-bottom: 1rem;
     }
   }
+  // List Container
+  .mainContainer {
+    padding: 1rem 0;
+ 
+    height: 70%;
+    .listCon {
+     
+      height: 48%;
+      overflow:hidden;
+      .todoListContainer {
+       height:90%;
+       overflow-y: auto;
+        overflow-x: hidden;
+       
+      }
+      .listContianer{
+        @include flexDisplay(center, baseline);
+        background-color: rgba(255, 255, 255, 0.5);
+        padding: 0.5rem;
+        margin-top: 0.5rem;
+        position: relative;
+        input{
+          margin-right: 1rem;
+        }
+        .trashIcon{
+          position: absolute;
+          right:0;
+          background-color:red;
+          color:#fff;
+          padding: 0.5rem;
+        }
+      }
+    }
+  }
+  .btnHolder {
+    @include flexDisplay(center, center);
+    position: absolute;
+    bottom: 0.5rem;
+    // background-color:pink;
+    width: 90%;
+    
+    button{
+      background-color: rgb(255, 255, 255, 0.7);
+      padding: 0.5rem;
+      outline: none;
+      color: rgb(0, 0, 0);
+      border: 2px solid rgb(255, 255, 255, 0.7);
+      margin: 5px;
+      
+      &:hover{
+        border-bottom: 2px solid rgba(110, 1, 1, 0.8);
+        border-top:  2px solid rgb(255, 255, 255, 0.7);
+        border-right:  2px solid rgb(255, 255, 255, 0.7);
+        border-left:  2px solid rgb(255, 255, 255, 0.7);
+      }
+
+    }
+    
+  }
+
 }

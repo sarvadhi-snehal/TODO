@@ -78,7 +78,9 @@ export default function Todo() {
             <Button text={`${btnText} Completed`} onClick={btnHandler} />
           ) : null}
 
+          {todos.length !== 0 ? 
           <Button text="Clear All" onClick={delAllTodos} />
+          : null }
         </div>
        
       </div>

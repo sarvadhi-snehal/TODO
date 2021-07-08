@@ -21,7 +21,7 @@ const TodoForm = ({ addTodo }) => {
   };
 
   return (
-    <form onSubmit={handleTodoForm}>
+    <form className="todoForm" onSubmit={handleTodoForm}>
       <input
         className="textInput"
         type="text"
