@@ -15,7 +15,6 @@ import { ThingsProvider } from "./context/contex";
 
 export default function Todo() {
   const [todos, setTodos] = useState([]);
-  const [doneTodo, setDoneTodo] = useState([]);
   const [isShown, setIsShown] = useState(false);
   const [btnText, setBtnText] = useState("Show");
   // Delete Todo
@@ -26,6 +25,10 @@ export default function Todo() {
 
   const delAllTodos = () => {
     setTodos([]);
+    dispalyNone = {
+      display: 'none'
+    }
+
   };
   // on Double tap
   const onCheked = (id) => {
@@ -58,6 +61,7 @@ export default function Todo() {
   let month = d.getMonth();
   let year = d.getFullYear();
 
+
   return (
     <ThingsProvider value={todos}>
       <div className="todoContainer">
@@ -68,14 +72,15 @@ export default function Todo() {
           <Dice />
         ) : (
           <div className="mainContainer">
-            <TodoList onDelete={delTodo} onToggle={onCheked} />
+          
+            <TodoList  onDelete={delTodo} onToggle={onCheked} />
 
-            {isShown ? <DoneTodo todos={todos} onToggle={onCheked} onDelete={delTodo}/> : null}
+            {isShown ? <DoneTodo  todos={todos} onToggle={onCheked} onDelete={delTodo}/> : null}
           </div>
         )}
         <div className="btnHolder">
           {todos.find((todo) => todo.isDone == true) ? (
-            <Button text={`${btnText} Completed`} onClick={btnHandler} />
+            <Button text={`${btnText} Completed`} onClick={btnHandler}  />
           ) : null}
 
           {todos.length !== 0 ? 

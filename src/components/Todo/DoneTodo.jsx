@@ -8,7 +8,7 @@ function DoneTodo({ todos,onToggle, onDelete }) {
   let total = Math.floor((doneTodo.length / todos.length) * 100);
   return (
     <div className="listCon">
- <p >{`Completed task: ${total}%`}</p>
+ <p className="remain" >{`Completed task: ${total}%`}</p>
    <div className="todoListContainer">
      
       {todos.map((todo) => {

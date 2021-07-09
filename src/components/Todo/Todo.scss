@@ -22,8 +22,11 @@
 
   .todoHeader {
     padding: 2rem 0;
+    color: rgba(15, 17, 179, 0.8);
+    
     h1 {
       font-size: 2rem;
+
     }
     p {
       font-size: 1rem;
@@ -37,6 +40,7 @@
     input {
       padding: 0.5rem 1rem;
       width: 82%;
+      outline-style: none;
     }
     button {
       margin-left: 2%;
@@ -65,8 +69,11 @@
       height: 48%;
      
       overflow:hidden;
+      .remain{
+        margin: 3% 0 1% 0;
+      }
       .todoListContainer {
-       height:90%;
+       max-height:84%;
        overflow-y: auto;
         overflow-x: hidden;
         
